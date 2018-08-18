@@ -26,3 +26,30 @@ services:
         POSTGRES_DB: legodi
     restart: always
 ,,,
+
+2-create migration folder
+
+inside it create file 
+,,,
+20180808152913_product.js
+,,,
+
+this file should contain the schema of the table 
+
+3-
+
+```
+exports.up = async (knex, Promise) => {
+    await knex.schema.createTable('products', table => {
+      table.increments('product_id')
+      table.string('title').notNullable()
+      table.string('price').notNullable()
+    })
+  }
+  
+  exports.down = function (knex, Promise) {
+    return knex.schema.dropTable('classes')
+  }
+```
+
+
