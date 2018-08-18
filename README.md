@@ -53,3 +53,30 @@ exports.up = async (knex, Promise) => {
 ```
 
 
+4- seed
+
+we can use seed to add mock data
+
+so we need to create folder seed
+
+inside folder seed we need to create products.js file
+
+,,,
+exports.seed = async (knex, Promise) => {
+  await knex("weegie")
+    .del()
+    .then(() => {
+      return knex("products").insert([
+        {
+          title: "New MAcBook Bro 13",
+          price: "$999"
+        },
+        {
+          title: "New Lenovo pc ",
+          price: "$444"
+        },
+      ]);
+    });
+};
+,,,
+
